@@ -1,19 +1,16 @@
 public class AlgorithmAnalysis {
-  int n = 10;
+  private static final int n = 10;
 
   public static void main(String[] args) {
     AlgorithmAnalysis aa = new AlgorithmAnalysis();
-    System.out.println("actual number of steps:");
-    System.out.println(aa.first());
-    System.out.println(aa.second());
-    System.out.println(aa.third());
-    System.out.println(aa.fourth());
-    System.out.println(aa.fifth());
-    System.out.println(aa.sixth());
-    System.out.println(aa.seventh());
+    System.out.println("n = " + n);
+    System.out.println("actual number of steps for algorithm...");
+    for (int i = 1; i <= 7; i++) {
+      System.out.println(i + ": " + aa.runAlgorithm(i, n));
+    }
   }
 
-  public int first() {
+  private int first(int n) {
     int sum = 0;
     // Fragment #1
     for ( int i = 0; i < n; i ++) {
@@ -22,7 +19,7 @@ public class AlgorithmAnalysis {
     return sum;
   }
 
-  public int second() {
+  private int second(int n) {
     int sum = 0;
     // Fragment #2
     for ( int i = 0; i < n; i ++)
@@ -31,7 +28,7 @@ public class AlgorithmAnalysis {
     return sum;
   }
 
-  public int third() {
+  private int third(int n) {
     int sum = 0;
     // Fragment #3
     for ( int i = 0; i < n; i ++)
@@ -40,7 +37,7 @@ public class AlgorithmAnalysis {
     return sum;
   }
 
-  public int fourth() {
+  private int fourth(int n) {
     int sum = 0;
     // Fragment #4
     for ( int i = 0; i < n; i ++)
@@ -50,7 +47,7 @@ public class AlgorithmAnalysis {
     return sum;
   }
 
-  public int fifth() {
+  private int fifth(int n) {
     int sum = 0;
     // Fragment #5
     for ( int i = 0; i < n; i ++)
@@ -59,7 +56,7 @@ public class AlgorithmAnalysis {
     return sum;
   }
 
-  public int sixth() {
+  private int sixth(int n) {
     int sum = 0;
     // Fragment #6
     for ( int i = 0; i < n; i ++)
@@ -68,7 +65,7 @@ public class AlgorithmAnalysis {
     return sum;
   }
 
-  public int seventh() {
+  private int seventh(int n) {
     int sum = 0;
     // Fragment #7
     for ( int i = 1; i < n; i ++)
@@ -77,5 +74,26 @@ public class AlgorithmAnalysis {
           for (int k = 0; k < j; k++)
             sum++;
     return sum;
+  }
+
+  private int runAlgorithm(int number, int n) {
+    switch (number) {
+      case 1:
+        return first(n);
+      case 2:
+        return second(n);
+      case 3:
+        return third(n);
+      case 4:
+        return fourth(n);
+      case 5:
+        return fifth(n);
+      case 6:
+        return sixth(n);
+      case 7:
+        return seventh(n);
+      default:
+        return -1; // algorithm not defined
+    }
   }
 }
