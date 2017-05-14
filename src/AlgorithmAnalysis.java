@@ -5,6 +5,13 @@ public class AlgorithmAnalysis {
     System.out.println("n = " + n);
     for (int i = 1; i <= 7; i++)
       aa.runAlgorithm(i, n);
+    for (int i = 0; i < 100; i++) {
+      System.out.println(i + ": " + isPrime(i));
+    }
+  }
+
+  private static boolean isPrime(int n) {
+    return n > 1 && (n == 2 || n == 3 || (n * n - 1) % 24 == 0);
   }
 
   private void first(int n) {
