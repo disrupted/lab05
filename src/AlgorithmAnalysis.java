@@ -5,9 +5,7 @@ public class AlgorithmAnalysis {
     System.out.println("n = " + n);
     for (int i = 1; i <= 7; i++)
       aa.runAlgorithm(i, n);
-    for (int i = 0; i < 100; i++) {
-      System.out.println(i + ": " + isPrime(i));
-    }
+    aa.checkPrimes(100);
   }
 
   private static boolean isPrime(int n) {
@@ -18,9 +16,12 @@ public class AlgorithmAnalysis {
     return true;
   }
 
-  /* private static boolean isPrime(int n) {
-    return n > 1 && (n == 2 || n == 3 || (n * n - 1) % 24 == 0);
-  } */
+  private void checkPrimes(int n) {
+    System.out.println("Primes:");
+    for (int i = 0; i <= n; i++) {
+      System.out.println(i + ": " + isPrime(i));
+    }
+  }
 
   private void first(int n) {
     int sum = 0;
@@ -37,7 +38,6 @@ public class AlgorithmAnalysis {
     double v = (double) sum / n;
     System.out.println("factor to multiply N: " + v); // that represent n*v -> O(n) (linear)
     System.out.println("_____________________________");
-
   }
 
   private void second(int n) {
