@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class AlgorithmAnalysis {
   public static void main(String[] args) {
     AlgorithmAnalysis aa = new AlgorithmAnalysis();
@@ -5,15 +7,36 @@ public class AlgorithmAnalysis {
     System.out.println("n = " + n);
     for (int i = 1; i <= 7; i++)
       aa.runAlgorithm(i, n);
-    aa.checkPrimes(100);
+    aa.checkPrimes(n); // isPrime test for integers from 0 to 100 to see if algorithm works correctly
+    // System.out.println(isPrimeLong(2147483647D)); // TODO: returns false even though it should be true
+    aa.checkBinaryPrimes(n, 20); // 100x isPrime test for random 20bit numbers
+    aa.checkBinaryPrimes(n, 40); // 100x isPrime test for random 40bit numbers
   }
 
-  private static boolean isPrime(int n) {
-    if (n < 2) return false;
-    for (int i = 2; i < n; i++) {
-      if (n % i == 0) return false;
+  private static boolean isPrime(int num) {
+    if (num < 2) return false;
+    for (int i = 2; i < num; i++) {
+      if (num % i == 0) return false;
     }
     return true;
+  }
+
+  private static boolean isPrimeLong(long num) {
+    if (num == 2) return true;
+    if (num < 2 || num % 2 == 0) return false;
+    for (int i = 3; i * i <= num; i += 2)
+      if (num % i == 0) return false;
+    return true;
+  }
+
+  private static String generateBinary(int binarylength) {
+    if (binarylength < 1) return "";
+    Random rand = new Random();
+    String binary = "1"; // first digit should always be 1 for the correct size
+    for (int i = 1; i < binarylength; i++) {
+      binary += rand.nextInt(2);
+    }
+    return binary;
   }
 
   private void checkPrimes(int n) {
@@ -21,6 +44,21 @@ public class AlgorithmAnalysis {
     for (int i = 0; i <= n; i++) {
       System.out.println(i + ": " + isPrime(i));
     }
+    System.out.println("_____________________________");
+  }
+
+  private void checkBinaryPrimes(int n, int binaryLength) {
+    System.out.println("Binary Primes (" + binaryLength + " bit):");
+    long start = System.nanoTime();
+    for (int i = 0; i <= n; i++) {
+      String binary = generateBinary(binaryLength);
+      long binaryVal = Long.parseLong(binary, 2);
+      System.out.println(binary + " = " + binaryVal + ": " + isPrimeLong(binaryVal));
+    }
+    long stop = System.nanoTime();
+    long runningTime = (stop - start);
+    System.out.println("Running Time: " + runningTime + "ms");
+    System.out.println("_____________________________");
   }
 
   private void first(int n) {
