@@ -29,11 +29,11 @@ public class AlgorithmAnalysis {
     return true;
   }
 
-  private static String generateBinary(int binarylength) {
-    if (binarylength < 1) return "";
+  private static String generateBinary(int binaryLength) {
+    if (binaryLength < 1) return "";
     Random rand = new Random();
     String binary = "1"; // first digit should always be 1 for the correct size
-    for (int i = 1; i < binarylength; i++) {
+    for (int i = 1; i < binaryLength; i++) {
       binary += rand.nextInt(2);
     }
     return binary;
