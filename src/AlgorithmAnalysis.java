@@ -31,7 +31,7 @@ public class AlgorithmAnalysis {
     }
     long stop = System.nanoTime();
     long runningTime = (stop - start);
-    System.out.println("Running Time: " + runningTime + "ns");
+    System.out.println("Running Time: " + runningTime + "ms");
     System.out.println("Operations: " + sum);
     System.out.println("Input Size: " + n);
     double v = (double) sum / n;
@@ -84,7 +84,7 @@ public class AlgorithmAnalysis {
       sum++;
     long stop = System.nanoTime();
     long runningTime = (stop - start);
-    System.out.println("Running Time: " + runningTime + "ns");
+    System.out.println("Running Time: " + runningTime + "ms");
     System.out.println("Operations: " + sum);
     System.out.println("Input Size: " + n);
     double v = (double) sum / n;
