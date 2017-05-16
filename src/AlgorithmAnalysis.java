@@ -116,10 +116,11 @@ public class AlgorithmAnalysis {
     int sum = 0;
     System.out.println("Fragment 4:");
     long start = System.nanoTime();
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) {
       sum++;
-    for (int j = 0; j < n; j++)
-      sum++;
+      for (int j = 0; j < n; j++)
+        sum++;
+    }
     long stop = System.nanoTime();
     long runningTime = (stop - start);
     System.out.println("Running Time: " + runningTime + "ms");
